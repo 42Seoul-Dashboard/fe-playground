@@ -1,8 +1,8 @@
-import PersistentDrawerLeft from "../../components/PersistentDrawerLeft";
+import Board from "../../components/srcs/Board";
 
 function Dashboard() {
 	return (
-		<PersistentDrawerLeft/>
+		<Board/>
 	)
 }
 
