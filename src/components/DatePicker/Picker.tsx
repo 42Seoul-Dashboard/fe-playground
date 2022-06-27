@@ -1,16 +1,16 @@
 import Preset from "./Preset";
 import "react-datepicker/dist/react-datepicker.css";
-import Small from "./Samll";
+import Small from "./Small";
 import { useState } from "react";
-import Sender from "./Send";
+import Sender from "./Sender";
+
+const START_TEXT = "시작일",
+  END_TEXT = "종료일",
+  BUTTON_TEXT = "보내기";
 
 function Picker() {
   const [startTime, setStartTimer] = useState(new Date());
   const [endTime, setEndTimer] = useState(new Date());
-
-  const startText = "시작일",
-      endText = "종료일",
-      buttonText = "보내기";
 
   const wrapSetStartTimer = (date: Date) => {
     if (date.getTime() <= endTime.getTime()) {
@@ -26,14 +26,14 @@ function Picker() {
   }
   return (
     <div style={{ display: 'flex'}}>
-      <Small text={startText} time={startTime} setTime={wrapSetStartTimer}/>
-      <Small text={endText} time={endTime} setTime={wrapSetEndTimer}/>
+      <Small text={START_TEXT} time={startTime} setTime={wrapSetStartTimer}/>
+      <Small text={END_TEXT} time={endTime} setTime={wrapSetEndTimer}/>
       <Preset setStart={setStartTimer} setEnd={setEndTimer} />
       <Sender
-      buttonText={buttonText}
-      to={"where"}
-      startTime={startTime}
-      endTime={endTime}></Sender>
+        buttonText={BUTTON_TEXT}
+        to={"where"}
+        startTime={startTime}
+        endTime={endTime}></Sender>
     </div>
   );
 }
